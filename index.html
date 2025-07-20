@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dojo Skills - Master New Abilities</title>
+    <title>Dojo Skills - Skill Development Blog</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <!-- Header -->
@@ -16,9 +17,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="store.html">Store</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -27,77 +28,105 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Master New Skills with Dojo</h2>
-            <p>Join our community of learners and discover expert tutorials on the most in-demand skills.</p>
-            <a href="https://youtube.com/@dojoskills" class="cta-button">Subscribe Now</a>
+            <h2>Master New Skills Through Our Guides</h2>
+            <p>Practical tutorials and resources to help you develop valuable abilities</p>
         </div>
     </section>
 
-    <!-- Latest Videos Section -->
-    <section class="videos">
+    <!-- Featured Articles -->
+    <section class="featured">
         <div class="section-title">
-            <h2>Latest Videos</h2>
+            <h2>Latest Articles</h2>
         </div>
-        <div class="video-grid">
-            <!-- Video Card 1 -->
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="video1-thumb.jpg" alt="Video Thumbnail">
+        <div class="article-grid">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="article1.jpg" alt="Article thumbnail" loading="lazy">
                 </div>
-                <div class="video-info">
-                    <h3>5 Essential Skills for Beginners</h3>
-                    <p>Learn the foundational skills everyone should master first.</p>
-                    <a href="#" class="watch-button">Watch Now</a>
+                <div class="article-info">
+                    <span class="category">Tutorial</span>
+                    <h3>10 Essential Woodworking Techniques</h3>
+                    <p class="excerpt">Learn fundamental skills every beginner woodworker should master...</p>
+                    <a href="article-woodworking.html" class="read-more">Read Guide →</a>
+                </div>
+            </article>
+            
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="article2.jpg" alt="Article thumbnail" loading="lazy">
+                </div>
+                <div class="article-info">
+                    <span class="category">Review</span>
+                    <h3>Best Tools for Home Cooks 2023</h3>
+                    <p class="excerpt">We tested 25 kitchen tools to find the most reliable options...</p>
+                    <a href="article-kitchen-tools.html" class="read-more">Read Review →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Recommended Products Section -->
+    <section class="products">
+        <div class="section-title">
+            <h2>Recommended Tools</h2>
+            <p>Quality equipment we've tested and recommend</p>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="tool1.jpg" alt="Product image" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Professional Chef's Knife</h3>
+                    <p class="description">8-inch stainless steel blade with ergonomic handle</p>
+                    <div class="meta">
+                        <span class="price">$89.99</span>
+                        <span class="rating">★★★★☆ (142)</span>
+                    </div>
+                    <a href="https://www.example.com/chef-knife" 
+                       class="external-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       View on Amazon
+                    </a>
                 </div>
             </div>
             
-            <!-- Video Card 2 -->
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="video2-thumb.jpg" alt="Video Thumbnail">
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="tool2.jpg" alt="Product image" loading="lazy">
                 </div>
-                <div class="video-info">
-                    <h3>Advanced Techniques Explained</h3>
-                    <p>Take your skills to the next level with these pro tips.</p>
-                    <a href="#" class="watch-button">Watch Now</a>
-                </div>
-            </div>
-            
-            <!-- Video Card 3 -->
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="video3-thumb.jpg" alt="Video Thumbnail">
-                </div>
-                <div class="video-info">
-                    <h3>Common Mistakes to Avoid</h3>
-                    <p>Learn what not to do when developing your skills.</p>
-                    <a href="#" class="watch-button">Watch Now</a>
+                <div class="product-info">
+                    <h3>Cordless Drill Set</h3>
+                    <p class="description">20V lithium-ion battery with 30+ accessories</p>
+                    <div class="meta">
+                        <span class="price">$129.99</span>
+                        <span class="rating">★★★★★ (89)</span>
+                    </div>
+                    <a href="https://www.example.com/drill-set" 
+                       class="external-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       View at Home Depot
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-title">
-            <h2>About Dojo Skills</h2>
-        </div>
-        <div class="about-content">
-            <p>Dojo Skills is dedicated to helping you master new abilities through high-quality, easy-to-follow tutorials. Our mission is to make skill development accessible to everyone.</p>
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>100+</h3>
-                    <p>Subscribers</p>
-                </div>
-                <div class="stat-item">
-                    <h3>2+</h3>
-                    <p>Tutorials</p>
-                </div>
-                <div class="stat-item">
-                    <h3>24K+</h3>
-                    <p>Views</p>
-                </div>
-            </div>
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h3>Get Skill-Building Tips</h3>
+            <p>Subscribe to our weekly newsletter for new tutorials and resources</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -106,28 +135,28 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Dojo Skills</h3>
-                <p>Master new abilities with our expert tutorials.</p>
+                <p>Master practical skills through our free tutorials and guides.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="videos.html">Videos</a></li>
-                    <li><a href="store.html">Store</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
+                <h3>Connect</h3>
+                <div class="social-links">
                     <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
                     <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="pinterest-icon.png" alt="Pinterest"></a>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dojo Skills. All rights reserved.</p>
+            <p>&copy; 2023 Dojo Skills. All rights reserved.</p>
         </div>
     </footer>
 </body>
