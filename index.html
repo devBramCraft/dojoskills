@@ -1,33 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dojoskills</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Skills - Master New Abilities</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Dojoskills Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="webshop.html">Shop</a></li>
-        <li><a href="videos.html">Videos</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Dojo Skills Logo">
+                <h1>Dojo Skills</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section class="intro">
-      <h1>Welcome to Dojoskills</h1>
-      <p>I'm a content creator sharing videos, digital gear, and tools for creators. Stay tuned and explore!</p>
-      <img src="images/banner.jpg" alt="Channel Banner" class="banner" />
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Master New Skills with Dojo</h2>
+            <p>Join our community of learners and discover expert tutorials on the most in-demand skills.</p>
+            <a href="https://youtube.com/yourchannel" class="cta-button">Subscribe Now</a>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Dojoskills. All rights reserved.</p>
-  </footer>
+    <!-- Latest Videos Section -->
+    <section class="videos">
+        <div class="section-title">
+            <h2>Latest Videos</h2>
+        </div>
+        <div class="video-grid">
+            <!-- Video Card 1 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="video1-thumb.jpg" alt="Video Thumbnail">
+                </div>
+                <div class="video-info">
+                    <h3>5 Essential Skills for Beginners</h3>
+                    <p>Learn the foundational skills everyone should master first.</p>
+                    <a href="#" class="watch-button">Watch Now</a>
+                </div>
+            </div>
+            
+            <!-- Video Card 2 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="video2-thumb.jpg" alt="Video Thumbnail">
+                </div>
+                <div class="video-info">
+                    <h3>Advanced Techniques Explained</h3>
+                    <p>Take your skills to the next level with these pro tips.</p>
+                    <a href="#" class="watch-button">Watch Now</a>
+                </div>
+            </div>
+            
+            <!-- Video Card 3 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="video3-thumb.jpg" alt="Video Thumbnail">
+                </div>
+                <div class="video-info">
+                    <h3>Common Mistakes to Avoid</h3>
+                    <p>Learn what not to do when developing your skills.</p>
+                    <a href="#" class="watch-button">Watch Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About Dojo Skills</h2>
+        </div>
+        <div class="about-content">
+            <p>Dojo Skills is dedicated to helping you master new abilities through high-quality, easy-to-follow tutorials. Our mission is to make skill development accessible to everyone.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Subscribers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2+</h3>
+                    <p>Tutorials</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24K+</h3>
+                    <p>Views</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dojo Skills</h3>
+                <p>Master new abilities with our expert tutorials.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="store.html">Store</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dojo Skills. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
