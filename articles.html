@@ -6,6 +6,101 @@
     <title>Articles - Dojo Skills</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Button enhancements */
+        .search-container {
+            display: flex;
+            margin-left: auto;
+            padding: 0 20px;
+        }
+        
+        .search-input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+            transition: all 0.3s;
+            width: 200px;
+        }
+        
+        .search-input:focus {
+            border-color: #4CAF50;
+        }
+        
+        .search-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #45a049;
+        }
+        
+        /* Enhanced button styles */
+        .filter-btn, .page-btn, .read-more {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .filter-btn {
+            background: #f1f1f1;
+            color: #333;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .page-btn {
+            background: white;
+            border: 1px solid #ddd;
+            min-width: 40px;
+        }
+        
+        .page-btn:hover {
+            background: #f1f1f1;
+        }
+        
+        .page-btn.active {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        .read-more:hover {
+            background: #45a049;
+            transform: translateX(5px);
+        }
+        
+        /* Article card hover effect */
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,6 +116,10 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search articles...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
         </nav>
     </header>
 
