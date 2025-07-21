@@ -4,19 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles - Dojo Skills</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Button enhancements */
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .nav-links a.active {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        /* Search Bar */
         .search-container {
             display: flex;
-            margin-left: auto;
-            padding: 0 20px;
+            margin-left: 2rem;
         }
         
         .search-input {
-            padding: 10px 15px;
+            padding: 0.5rem 1rem;
             border: 2px solid #ddd;
             border-radius: 25px 0 0 25px;
             outline: none;
@@ -32,7 +99,7 @@
             background: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 0.5rem 1rem;
             border-radius: 0 25px 25px 0;
             cursor: pointer;
             transition: all 0.3s;
@@ -42,10 +109,40 @@
             background: #45a049;
         }
         
-        /* Enhanced button styles */
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+        }
+        
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Button Styles */
         .filter-btn, .page-btn, .read-more {
-            padding: 10px 20px;
-            margin: 5px;
+            padding: 0.5rem 1.5rem;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -66,10 +163,105 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+        
+        .article-info {
+            padding: 1.5rem;
+        }
+        
+        .category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #4CAF50;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .meta {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .excerpt {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        
+        .read-more:hover {
+            background: #45a049;
+            transform: translateX(5px);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
         .page-btn {
             background: white;
             border: 1px solid #ddd;
             min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .page-btn:hover {
@@ -82,23 +274,183 @@
             border-color: #4CAF50;
         }
         
-        .read-more {
-            display: inline-block;
-            background: #4CAF50;
+        /* Footer */
+        footer {
+            background: #2c3e50;
             color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
             text-decoration: none;
-            margin-top: 10px;
+            transition: color 0.3s;
         }
         
-        .read-more:hover {
-            background: #45a049;
-            transform: translateX(5px);
+        .footer-section a:hover {
+            color: #4CAF50;
         }
         
-        /* Article card hover effect */
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .social-links img:hover {
+            transform: scale(1.1);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.85rem;
+        }
+        
+        /* Coming Soon Placeholder */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background: #f1f1f1;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        .coming-soon i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Article Content Styles */
+        .article-content {
+            margin-top: 1.5rem;
+        }
+        
+        .article-content h2, 
+        .article-content h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .article-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Review Stars */
+        .rating {
+            color: #FFD700;
+            margin: 0.5rem 0;
+        }
+        
+        /* Product Specs */
+        .specs {
+            margin: 1.5rem 0;
+        }
+        
+        .specs h3 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            min-width: 200px;
+        }
+        
+        /* Reviews Section */
+        .reviews {
+            margin-top: 2rem;
+        }
+        
+        .review {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-author {
+            font-weight: 600;
+        }
+        
+        .review-date {
+            color: #7f8c8d;
+        }
+        
+        .review-content {
+            line-height: 1.6;
+        }
+        
+        /* Price Box */
+        .price-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            border: 1px solid #eee;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
         }
     </style>
 </head>
@@ -106,7 +458,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="Dojo Skills Logo">
+                <img src="https://via.placeholder.com/40" alt="Dojo Skills Logo">
                 <h1>Dojo Skills</h1>
             </div>
             <ul class="nav-links">
@@ -130,50 +482,22 @@
         </div>
 
         <div class="category-filter">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Tutorials</button>
-            <button class="filter-btn">Reviews</button>
-            <button class="filter-btn">Guides</button>
+            <button class="filter-btn active" onclick="filterArticles('all')">All</button>
+            <button class="filter-btn" onclick="filterArticles('tutorial')">Tutorials</button>
+            <button class="filter-btn" onclick="filterArticles('review')">Reviews</button>
+            <button class="filter-btn" onclick="filterArticles('guide')">Guides</button>
         </div>
 
-        <div class="article-grid">
-            <!-- Article 1 -->
-            <article class="article-card">
-                <div class="article-image">
-                    <img src="article1.jpg" alt="Woodworking techniques" loading="lazy">
-                </div>
-                <div class="article-info">
-                    <span class="category">Tutorial</span>
-                    <h3>10 Essential Woodworking Techniques</h3>
-                    <p class="meta">Published: March 15, 2023 • 8 min read</p>
-                    <p class="excerpt">Master these fundamental skills to build your woodworking confidence...</p>
-                    <a href="article-woodworking.html" class="read-more">Read Guide →</a>
-                </div>
-            </article>
-
-            <!-- Article 2 -->
-            <article class="article-card">
-                <div class="article-image">
-                    <img src="article2.jpg" alt="Kitchen tools" loading="lazy">
-                </div>
-                <div class="article-info">
-                    <span class="category">Review</span>
-                    <h3>Best Kitchen Tools for Home Cooks</h3>
-                    <p class="meta">Published: February 28, 2023 • 6 min read</p>
-                    <p class="excerpt">After testing 25+ products, these are our top recommendations...</p>
-                    <a href="article-kitchen-tools.html" class="read-more">Read Review →</a>
-                </div>
-            </article>
-
-            <!-- More articles... -->
+        <div class="article-grid" id="articleGrid">
+            <!-- Articles will be dynamically loaded here -->
         </div>
 
         <div class="pagination">
-            <button class="page-btn">Previous</button>
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">Next</button>
+            <button class="page-btn" id="prevBtn" onclick="changePage(-1)">Previous</button>
+            <button class="page-btn" onclick="goToPage(1)">1</button>
+            <button class="page-btn" onclick="goToPage(2)">2</button>
+            <button class="page-btn" onclick="goToPage(3)">3</button>
+            <button class="page-btn" id="nextBtn" onclick="changePage(1)">Next</button>
         </div>
     </main>
 
@@ -195,15 +519,398 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <div class="social-links">
-                    <a href="https://www.youtube.com/@dojoskills"><img src="youtube-icon.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com/dojoskills/"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="/contact.html"><img src="pinterest-icon.png" alt="email"></a>
+                    <a href="https://www.youtube.com/@dojoskills"><img src="https://via.placeholder.com/30" alt="YouTube"></a>
+                    <a href="https://www.instagram.com/dojoskills/"><img src="https://via.placeholder.com/30" alt="Instagram"></a>
+                    <a href="/contact.html"><img src="https://via.placeholder.com/30" alt="email"></a>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dojo Skills. All rights reserved.</p>
+            <p>&copy; 2023 Dojo Skills. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Article data
+        const articles = {
+            page1: [
+                {
+                    id: 1,
+                    title: "WNA Nunchaku Rond Senior Geel - Expert Review",
+                    category: "review",
+                    date: "July 15, 2023",
+                    readTime: "12 min read",
+                    excerpt: "Comprehensive review of the WNA Nunchaku Rond Senior Geel - the official nunchaku for senior yellow belts...",
+                    image: "https://images.unsplash.com/photo-1600701709146-0b9b4b0b0b0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: `
+                        <h2>WNA Nunchaku Rond Senior Geel - Expert Review</h2>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0/5 (2 reviews)</span>
+                        </div>
+                        <p>The WNA Nunchaku Rond Senior Geel is the official nunchaku for senior yellow belt practitioners, approved by the World Nunchaku Association. This premium training weapon combines safety, durability, and perfect balance for martial artists at this level.</p>
+                        
+                        <div class="specs">
+                            <h3>Product Specifications</h3>
+                            <div class="spec-item">
+                                <span class="spec-label">Brand:</span>
+                                <span>WNA</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Rating:</span>
+                                <span>5.0/5</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Material:</span>
+                                <span>Polyester core with shock-absorbing foam</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Color:</span>
+                                <span>Yellow</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Length:</span>
+                                <span>Senior size (≥165cm)</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Weight:</span>
+                                <span>0.183 kg</span>
+                            </div>
+                        </div>
+                        
+                        <h3>Product Description</h3>
+                        <p>Unlock your inner martial artist with the WNA Nunchaku Rond Senior Geel, the ultimate weapon for precision, control and safety.</p>
+                        <p>Made from a solid polyester core surrounded by thick shock-absorbing foam, this nunchaku offers unmatched durability and protection, ideal for both beginners and advanced practitioners.</p>
+                        
+                        <h3>Why Choose the WNA Nunchaku Rond Senior?</h3>
+                        <ul>
+                            <li><strong>Official WNA product:</strong> Guaranteed quality and safety, approved by the World Nunchaku Association</li>
+                            <li><strong>Perfect grip:</strong> The round shape provides a natural grip while the light weight allows effortless maneuvers</li>
+                            <li><strong>Enhanced safety:</strong> The thick foam absorbs shocks and protects against injuries, ideal for training purposes</li>
+                            <li><strong>Durable design:</strong> The sturdy polyester core guarantees long-lasting performance even with intensive use</li>
+                        </ul>
+                        
+                        <div class="price-box">
+                            <h3>Price Information</h3>
+                            <p class="price">€33.49</p>
+                            <p>Available from Jokasport.nl with free shipping</p>
+                        </div>
+                        
+                        <div class="reviews">
+                            <h3>Customer Reviews</h3>
+                            
+                            <div class="review">
+                                <div class="review-header">
+                                    <span class="review-author">PepijnChristian (50-59 years), Kampen</span>
+                                    <span class="review-date">24 May 2022</span>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="review-content">
+                                    <p>Very good practice weapon. From Milco Lambrecht it is known to be simply excellent.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="review">
+                                <div class="review-header">
+                                    <span class="review-author">GuntherM73 (40-49 years), Rijkevorsel</span>
+                                    <span class="review-date">7 September 2022</span>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="review-content">
+                                    <p>Perfect</p>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    id: 2,
+                    title: "Basic Nunchaku Techniques for Beginners",
+                    category: "tutorial",
+                    date: "June 28, 2023",
+                    readTime: "10 min read",
+                    excerpt: "Learn the fundamental nunchaku techniques every beginner should master...",
+                    image: "https://images.unsplash.com/photo-1544464077-376d969d5b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Basic Nunchaku Techniques for Beginners</h2><p>This article is currently in development. Check back soon for our comprehensive tutorial on basic nunchaku techniques!</p>"
+                },
+                {
+                    id: 3,
+                    title: "Martial Arts Equipment Buying Guide",
+                    category: "guide",
+                    date: "June 15, 2023",
+                    readTime: "14 min read",
+                    excerpt: "How to choose the right equipment for your martial arts training...",
+                    image: "https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Martial Arts Equipment Buying Guide</h2><p>This article is currently in development. Check back soon for our complete guide to buying martial arts equipment!</p>"
+                }
+            ],
+            page2: [
+                {
+                    id: 4,
+                    title: "Nunchaku Training Drills for Intermediate Level",
+                    category: "tutorial",
+                    date: "May 30, 2023",
+                    readTime: "12 min read",
+                    excerpt: "Take your nunchaku skills to the next level with these intermediate drills...",
+                    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Nunchaku Training Drills for Intermediate Level</h2><p>This article is currently in development. Check back soon for our intermediate nunchaku drills!</p>"
+                },
+                {
+                    id: 5,
+                    title: "Top 5 Martial Arts Weapons for Training",
+                    category: "review",
+                    date: "May 18, 2023",
+                    readTime: "8 min read",
+                    excerpt: "Our picks for the best martial arts training weapons available today...",
+                    image: "https://images.unsplash.com/photo-1583773116767-0a1f58c6f256?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Top 5 Martial Arts Weapons for Training</h2><p>This article is currently in development. Check back soon for our weapon reviews!</p>"
+                },
+                {
+                    id: 6,
+                    title: "The History of Nunchaku",
+                    category: "guide",
+                    date: "April 22, 2023",
+                    readTime: "15 min read",
+                    excerpt: "Explore the fascinating origins and evolution of this iconic weapon...",
+                    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: The History of Nunchaku</h2><p>This article is currently in development. Check back soon for our historical guide to nunchaku!</p>"
+                }
+            ],
+            page3: [
+                {
+                    id: 7,
+                    title: "Advanced Nunchaku Techniques",
+                    category: "tutorial",
+                    date: "April 10, 2023",
+                    readTime: "18 min read",
+                    excerpt: "Master these advanced techniques to impress in your next belt test...",
+                    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Advanced Nunchaku Techniques</h2><p>This article is currently in development. Check back soon for our advanced techniques tutorial!</p>"
+                },
+                {
+                    id: 8,
+                    title: "Comparing Training Nunchaku Models",
+                    category: "review",
+                    date: "March 25, 2023",
+                    readTime: "14 min read",
+                    excerpt: "We compare 7 popular nunchaku models to help you choose the best...",
+                    image: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Comparing Training Nunchaku Models</h2><p>This article is currently in development. Check back soon for our nunchaku comparison!</p>"
+                },
+                {
+                    id: 9,
+                    title: "Building Your Home Dojo",
+                    category: "guide",
+                    date: "March 5, 2023",
+                    readTime: "20 min read",
+                    excerpt: "Everything you need to create the perfect training space at home...",
+                    image: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    content: "<h2>Coming Soon: Building Your Home Dojo</h2><p>This article is currently in development. Check back soon for our home dojo guide!</p>"
+                }
+            ]
+        };
+
+        // Current page and filter state
+        let currentPage = 1;
+        let currentFilter = 'all';
+        let currentArticle = null;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticles();
+            
+            // Set up search functionality
+            document.querySelector('.search-btn').addEventListener('click', searchArticles);
+            document.querySelector('.search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchArticles();
+                }
+            });
+        });
+
+        // Load articles for the current page and filter
+        function loadArticles() {
+            const articleGrid = document.getElementById('articleGrid');
+            articleGrid.innerHTML = '';
+            
+            const pageArticles = articles['page' + currentPage];
+            const filteredArticles = currentFilter === 'all' 
+                ? pageArticles 
+                : pageArticles.filter(article => article.category === currentFilter);
+            
+            if (filteredArticles.length === 0) {
+                articleGrid.innerHTML = '<div class="coming-soon"><i class="fas fa-hourglass-half"></i><p>No articles found matching your criteria</p></div>';
+                return;
+            }
+            
+            filteredArticles.forEach(article => {
+                const articleCard = document.createElement('article');
+                articleCard.className = 'article-card';
+                articleCard.innerHTML = `
+                    <div class="article-image">
+                        <img src="${article.image}" alt="${article.title}" loading="lazy">
+                    </div>
+                    <div class="article-info">
+                        <span class="category">${article.category.charAt(0).toUpperCase() + article.category.slice(1)}</span>
+                        <h3>${article.title}</h3>
+                        <p class="meta">Published: ${article.date} • ${article.readTime}</p>
+                        <p class="excerpt">${article.excerpt}</p>
+                        <a href="#" class="read-more" onclick="viewArticle(${article.id}, event)">Read ${article.category === 'review' ? 'Review' : 'Guide'} →</a>
+                    </div>
+                `;
+                articleGrid.appendChild(articleCard);
+            });
+            
+            // Update pagination buttons
+            updatePagination();
+        }
+
+        // View a single article
+        function viewArticle(id, event) {
+            if (event) event.preventDefault();
+            
+            // Find the article in any page
+            let article = null;
+            for (let page in articles) {
+                const found = articles[page].find(a => a.id === id);
+                if (found) {
+                    article = found;
+                    break;
+                }
+            }
+            
+            if (!article) return;
+            
+            currentArticle = article;
+            
+            const articleGrid = document.getElementById('articleGrid');
+            articleGrid.innerHTML = `
+                <article class="article-card" style="grid-column: 1 / -1">
+                    <div class="article-image">
+                        <img src="${article.image}" alt="${article.title}" loading="lazy">
+                    </div>
+                    <div class="article-info">
+                        <span class="category">${article.category.charAt(0).toUpperCase() + article.category.slice(1)}</span>
+                        <h3>${article.title}</h3>
+                        <p class="meta">Published: ${article.date} • ${article.readTime}</p>
+                        <div class="article-content">${article.content}</div>
+                        <button class="read-more" onclick="loadArticles()">← Back to Articles</button>
+                    </div>
+                </article>
+            `;
+            
+            // Hide pagination when viewing single article
+            document.querySelector('.pagination').style.display = 'none';
+        }
+
+        // Filter articles by category
+        function filterArticles(category) {
+            currentFilter = category;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadArticles();
+        }
+
+        // Search articles
+        function searchArticles() {
+            const query = document.querySelector('.search-input').value.toLowerCase();
+            if (!query) return;
+            
+            // Search through all articles
+            let results = [];
+            for (let page in articles) {
+                results = results.concat(articles[page].filter(article => 
+                    article.title.toLowerCase().includes(query) || 
+                    article.excerpt.toLowerCase().includes(query) ||
+                    article.content.toLowerCase().includes(query)
+                ));
+            }
+            
+            const articleGrid = document.getElementById('articleGrid');
+            articleGrid.innerHTML = '';
+            
+            if (results.length === 0) {
+                articleGrid.innerHTML = '<div class="coming-soon"><i class="fas fa-search"></i><p>No articles found matching your search</p></div>';
+                return;
+            }
+            
+            results.forEach(article => {
+                const articleCard = document.createElement('article');
+                articleCard.className = 'article-card';
+                articleCard.innerHTML = `
+                    <div class="article-image">
+                        <img src="${article.image}" alt="${article.title}" loading="lazy">
+                    </div>
+                    <div class="article-info">
+                        <span class="category">${article.category.charAt(0).toUpperCase() + article.category.slice(1)}</span>
+                        <h3>${article.title}</h3>
+                        <p class="meta">Published: ${article.date} • ${article.readTime}</p>
+                        <p class="excerpt">${article.excerpt}</p>
+                        <a href="#" class="read-more" onclick="viewArticle(${article.id}, event)">Read ${article.category === 'review' ? 'Review' : 'Guide'} →</a>
+                    </div>
+                `;
+                articleGrid.appendChild(articleCard);
+            });
+            
+            // Hide pagination during search
+            document.querySelector('.pagination').style.display = 'none';
+        }
+
+        // Change page
+        function changePage(delta) {
+            const newPage = currentPage + delta;
+            if (newPage >= 1 && newPage <= 3) {
+                currentPage = newPage;
+                loadArticles();
+            }
+        }
+
+        // Go to specific page
+        function goToPage(page) {
+            if (page >= 1 && page <= 3) {
+                currentPage = page;
+                loadArticles();
+            }
+        }
+
+        // Update pagination buttons
+        function updatePagination() {
+            document.querySelector('.pagination').style.display = 'flex';
+            
+            // Update active page button
+            document.querySelectorAll('.page-btn').forEach((btn, index) => {
+                if (index === currentPage) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Enable/disable previous/next buttons
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === 3;
+        }
+    </script>
 </body>
 </html>
