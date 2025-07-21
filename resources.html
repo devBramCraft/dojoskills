@@ -4,14 +4,336 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources - Dojo Skills</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .nav-links a.active {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            margin-left: 2rem;
+        }
+        
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+            transition: all 0.3s;
+            width: 200px;
+        }
+        
+        .search-input:focus {
+            border-color: #4CAF50;
+        }
+        
+        .search-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #45a049;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+        }
+        
+        /* Resource Categories */
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .category-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .category-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .category-card ul {
+            list-style: none;
+        }
+        
+        .category-card li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .category-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+        
+        .category-card a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .category-card a:hover {
+            color: #4CAF50;
+        }
+        
+        /* Downloads Section */
+        .downloads-section {
+            margin-top: 3rem;
+        }
+        
+        .downloads-section h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .download-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .download-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #45a049;
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #4CAF50;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background: #34495e;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #4CAF50;
+            transform: scale(1.1);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.85rem;
+        }
+        
+        /* Icons */
+        .icon {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="Dojo Skills Logo">
+                <img src="https://via.placeholder.com/40" alt="Dojo Skills Logo">
                 <h1>Dojo Skills</h1>
             </div>
             <ul class="nav-links">
@@ -21,6 +343,10 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search resources...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
         </nav>
     </header>
 
@@ -32,32 +358,44 @@
 
         <div class="resource-categories">
             <div class="category-card">
-                <img src="books-icon.png" alt="Books icon">
+                <div class="icon">
+                    <i class="fas fa-book"></i>
+                </div>
                 <h3>Recommended Books</h3>
                 <ul>
                     <li><a href="#">The Complete Manual of Woodworking</a></li>
                     <li><a href="#">Culinary Fundamentals</a></li>
                     <li><a href="#">DIY Home Repair Bible</a></li>
+                    <li><a href="#">Martial Arts Training Manual</a></li>
+                    <li><a href="#">The Art of Nunchaku</a></li>
                 </ul>
             </div>
 
             <div class="category-card">
-                <img src="tools-icon.png" alt="Tools icon">
+                <div class="icon">
+                    <i class="fas fa-tools"></i>
+                </div>
                 <h3>Tool Guides</h3>
                 <ul>
                     <li><a href="#">Essential Woodworking Tools</a></li>
                     <li><a href="#">Kitchen Equipment Starter Kit</a></li>
                     <li><a href="#">Gardening Tools for Beginners</a></li>
+                    <li><a href="#">Martial Arts Training Gear</a></li>
+                    <li><a href="#">Nunchaku Selection Guide</a></li>
                 </ul>
             </div>
 
             <div class="category-card">
-                <img src="video-icon.png" alt="Video icon">
+                <div class="icon">
+                    <i class="fas fa-video"></i>
+                </div>
                 <h3>Video Channels</h3>
                 <ul>
                     <li><a href="#">Woodworking Tutorials</a></li>
                     <li><a href="#">Cooking Techniques</a></li>
                     <li><a href="#">Home Improvement Guides</a></li>
+                    <li><a href="#">Martial Arts Training</a></li>
+                    <li><a href="#">Nunchaku Mastery</a></li>
                 </ul>
             </div>
         </div>
@@ -70,7 +408,21 @@
                     <p>PDF • 12 pages</p>
                     <a href="#" class="download-btn">Download</a>
                 </div>
-                <!-- More download cards... -->
+                <div class="download-card">
+                    <h4>Tool Maintenance Guide</h4>
+                    <p>PDF • 8 pages</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="download-card">
+                    <h4>Training Schedule Template</h4>
+                    <p>PDF • 5 pages</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="download-card">
+                    <h4>Nunchaku Techniques Chart</h4>
+                    <p>PDF • 6 pages</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
             </div>
         </div>
     </main>
@@ -93,15 +445,33 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <div class="social-links">
-                    <a href="https://www.youtube.com/@dojoskills"><img src="youtube-icon.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com/dojoskills/"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="/contact.html"><img src="pinterest-icon.png" alt="email"></a>
+                    <a href="https://www.youtube.com/@dojoskills"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/dojoskills/"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:contact@dojoskills.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dojo Skills. All rights reserved.</p>
+            <p>&copy; 2023 Dojo Skills. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple search functionality
+        document.querySelector('.search-btn').addEventListener('click', searchResources);
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchResources();
+            }
+        });
+
+        function searchResources() {
+            const query = document.querySelector('.search-input').value.toLowerCase();
+            if (!query) return;
+            
+            alert(`Search functionality would look for: "${query}"\nIn a complete implementation, this would filter the resources.`);
+            // In a real implementation, you would filter the resources here
+        }
+    </script>
 </body>
 </html>
